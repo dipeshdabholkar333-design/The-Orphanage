@@ -1,0 +1,66 @@
+<%- include('../admin_partials/adminHeader') %>
+
+<h2>Staff List</h2>
+
+<a href="/staff/add" class="btn">Add Staff</a>
+
+<br><br>
+
+<% if (staff.length > 0) { %>
+
+<table>
+
+    <thead>
+
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Salary</th>
+            <th>Actions</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        <% staff.forEach(s => { %>
+
+        <tr>
+
+            <td><%= s.id %></td>
+
+            <td><%= s.name %></td>
+
+            <td><%= s.position %></td>
+
+            <td><%= s.salary %></td>
+
+            <td>
+
+                <a href="/staff/edit/<%= s.id %>">Edit</a>
+
+                |
+
+                <a href="/staff/delete/<%= s.id %>"
+                   onclick="return confirm('Delete Staff?')">
+                   Delete
+                </a>
+
+            </td>
+
+        </tr>
+
+        <% }) %>
+
+    </tbody>
+
+</table>
+
+<% } else { %>
+
+<p>No Staff Found</p>
+
+<% } %>
+
+<%- include('../admin_partials/adminFooter') %>

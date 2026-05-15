@@ -1,0 +1,42 @@
+<%- include('../admin_partials/adminHeader') %>
+
+    <div class="container">
+
+        <h2>Children List</h2>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Actions</th>
+            </tr>
+
+            <% children.forEach(c=> { %>
+                <tr>
+                    <td>
+                        <%= c.id %>
+                    </td>
+                    <td>
+                        <%= c.name %>
+                    </td>
+                    <td>
+                        <%= c.age %>
+                    </td>
+                    <td>
+                        <a href="/children/edit/<%= c.id %>">Edit</a>
+
+                        <a href="/children/delete/<%= c.id %>" onclick="return confirm('Delete this child?')">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+                <% }) %>
+
+        </table>
+
+
+
+    </div>
+
+    <%- include('../admin_partials/adminFooter') %>

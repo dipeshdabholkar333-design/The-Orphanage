@@ -1,0 +1,23 @@
+<%- include('../admin_partials/adminHeader') %>
+<% if (expenses && expenses.length > 0) { %>
+
+    <% expenses.forEach(e => { %>
+
+        <tr>
+            <td><%= e.id %></td>
+            <td><%= e.expense_name %></td>
+            <td><%= e.amount %></td>
+            <td><%= e.expense_date %></td>
+        </tr>
+
+    <% }) %>
+
+<% } else { %>
+
+<tr>
+    <td colspan="4">No Expenses Found</td>
+</tr>
+
+<% } %>
+
+<%- include('../admin_partials/adminFooter') %>

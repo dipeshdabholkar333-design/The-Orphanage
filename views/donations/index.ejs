@@ -1,0 +1,24 @@
+<%- include('../admin_partials/adminHeader') %>
+
+<% if (donations && donations.length > 0) { %>
+
+    <% donations.forEach(d => { %>
+
+        <tr>
+            <td><%= d.id %></td>
+            <td><%= d.donor_name %></td>
+            <td><%= d.amount %></td>
+            <td><%= d.donation_date %></td>
+        </tr>
+
+    <% }) %>
+
+<% } else { %>
+
+<tr>
+    <td colspan="4">No Donations Found</td>
+</tr>
+
+<% } %>
+
+<%- include('../admin_partials/adminFooter') %>
